@@ -2,17 +2,21 @@ import React from "react"
 import Image from "next/image"
 
 const skills = [
-  { skill: "HTML" },
-  { skill: "CSS" },
+  // { skill: "CSS" },
   { skill: "JavaScript" },
   { skill: "TypeScript" },
   { skill: "Python" },
+  { skill: "C/C++" },
   { skill: "React" },
-  { skill: "Next.js" },
-  { skill: "Tailwind CSS" },
+  { skill: "Flutter" },
+  // { skill: "Tailwind CSS" },
   { skill: "Git" },
-  { skill: "GitHub" },
-  { skill: "Jupyter Notebooks" },
+  { skill: "Docker" },
+  { skill: "NodeJs" },
+  { skill: "ExpressJs" },
+  { skill: "NestJs" },
+  { skill: "SQL" },
+  { skill: "Linux" },
 ]
 
 const AboutSection = () => {
@@ -67,13 +71,13 @@ const AboutSection = () => {
                 )
               })}
             </div>
-            <Image
+            {/* <Image
               src="/dev-ed-wave.png"
               alt=""
               width={325}
               height={325}
               className="hidden md:block md:relative md:bottom-4 md:left-32 md:z-0"
-            />
+            /> */}
           </div>
         </div>
       </div>
