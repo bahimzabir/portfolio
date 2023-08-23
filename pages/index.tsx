@@ -4,6 +4,7 @@ import { ThemeProvider } from 'next-themes'
 import HeroSection from "./components/herosection"
 import AboutSection from "./components/AboutSection"
 import ProjectsSection from "./components/ProjectsSection"
+import ContactSection from "./components/ContactSection"
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
           <HeroSection />
           <AboutSection />
           <ProjectsSection/>
+          <ContactSection />
         </div>
       </ThemeProvider>
     </main>
