@@ -9,10 +9,10 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
 
+    <ThemeProvider  attribute="class">
       <ParallaxProvider scrollAxis='vertical'>
-    <ThemeProvider enableSystem={true} attribute="class">
         <Component {...pageProps} />
-    </ThemeProvider>
       </ParallaxProvider>
+    </ThemeProvider>
   )
 }

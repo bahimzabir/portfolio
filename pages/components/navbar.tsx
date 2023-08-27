@@ -1,14 +1,13 @@
-import React from "react"
-import { useState } from "react"
-import { Link } from "react-scroll/modules"
-import { usePathname } from "next/navigation"
-import { useTheme } from "next-themes"
-import { RiMoonFill, RiSunLine } from "react-icons/ri"
-import { IoMdMenu, IoMdClose } from "react-icons/io"
+import React from "react";
+import { useState } from "react";
+import { Link } from "react-scroll/modules";
+import { useTheme } from "next-themes";
+import { RiMoonFill, RiSunLine } from "react-icons/ri";
+import { IoMdMenu, IoMdClose } from "react-icons/io";
 
 interface NavItem {
-  label: string
-  page: string
+  label: string;
+  page: string;
 }
 
 const NAV_ITEMS: Array<NavItem> = [
@@ -24,15 +23,19 @@ const NAV_ITEMS: Array<NavItem> = [
     label: "Projects",
     page: "projects",
   },
-]
+];
 
 export default function Navbar() {
-  const { systemTheme, theme, setTheme } = useTheme()
-  const currentTheme = theme === "system" ? systemTheme : theme
-  const pathname = usePathname()
-  const [navbar, setNavbar] = useState(false)
+  let { systemTheme, theme, setTheme } = useTheme();
+  if (theme === undefined) {
+    setTheme("dark");
+    theme = "dark";
+  }
+  let currentTheme = theme === "system" ? systemTheme : theme;
+  const [navbar, setNavbar] = useState(false);
+
   return (
-    <header className="w-full mx-auto  px-4 sm:px-20 fixed top-0 z-50 shadow bg-white dark:bg-stone-900 dark:border-b dark:border-stone-600">
+    <header className={`w-full mx-auto px-4 sm:px-20 fixed top-0 z-50 shadow bg-white ${currentTheme === "dark" ? "dark:bg-stone-900 dark:border-b dark:border-stone-600" : ""}`}>
       <div className="justify-between md:items-center md:flex">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -42,7 +45,7 @@ export default function Navbar() {
                 <h2 className="text-2xl font-bold">I'm Abderrahim</h2>
               </div>
             </Link>
-            <div className="md:hidden flex items-center justify-between py-3 md:py-5 md:block">
+            <div className="md:hidden flex items-center justify-between py-3 md:py-5">
               <button
                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
                 onClick={() => setNavbar(!navbar)}
@@ -91,7 +94,7 @@ export default function Navbar() {
                   >
                     {item.label}
                   </Link>
-                )
+                );
               })}
               {!navbar ? (currentTheme === "dark" ? (
                 <button
@@ -113,5 +116,5 @@ export default function Navbar() {
         </div>
       </div>
     </header>
-  )
+  );
 }

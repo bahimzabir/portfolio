@@ -4,14 +4,15 @@ import { useState } from "react"
 import { Link } from "react-scroll/modules"
 import { usePathname } from "next/navigation"
 import { useTheme } from "next-themes"
-import {IoLogoGithub} from "react-icons/io5"
+import {IoLogoGithub, IoGlobe, IoLink} from "react-icons/io5"
 
 
 export default function ProjectsSection() {
-    const {theme} = useTheme()
+    let {resolvedTheme, systemTheme ,theme} = useTheme()
+    // console.log({systemTheme, theme, resolvedTheme})
     let projects = [
         {
-            name: "Transcedence",
+            name: "Trancsedence",
             description: "Description 1",
             image: "/tran.gif",
             image_dark: "/tran.dark.gif",
@@ -19,7 +20,7 @@ export default function ProjectsSection() {
 
         },
         {
-            name: "Project 2",
+            name: "Trancsedence",
             description: "Description 2",
             image: "/webserver.gif",
             image_dark: "/webserver.dark.gif",
@@ -35,7 +36,7 @@ export default function ProjectsSection() {
         {
             name: "Project 4",
             description: "Description 4",
-            image: "/web4.png",
+            image: "/webserver.gif",
             image_dark: "/webserver.dark.gif",
             link: "https://www.google.com/",
         }
@@ -53,9 +54,9 @@ export default function ProjectsSection() {
                 {projects.map((project, index) => {
                     // create title-image-description divs
                     return (
-                        <div className="flex flex-col text-center items-center justify-center animate-slideUp animation-delay-2 my-10 py-32 sm:py-32 md:py-12 md:flex-row md:space-x-24 md:text-left">
+                        <div key={index} className="flex flex-col text-center items-center justify-center animate-slideUp animation-delay-2 my-10 py-32 sm:py-32 md:py-12 md:flex-row md:space-x-24 md:text-left">
                             <div className="md:mt-2">
-                                <img src= {theme == "dark" ? project.image_dark : project.image} alt={project.name} />
+                                <img src= {theme == "light" ? project.image : project.image_dark} alt={project.name} />
                             </div>
                             <div className="md:mt-2 md:w-3/5">
                                 <h1 className="text-4xl font-bold mt-6 md:mt-0 md:text-7xl">{project.name}</h1>
@@ -63,11 +64,18 @@ export default function ProjectsSection() {
                                     {project.description}
                                 </p>
                                 {/*button takes to github*/}
-                                <button className=" hover:animate-spin inline-flex items-center">
+                                <div className="flex-row space-x-4 inline-flex items-center">
+                                <button className=" hover:animate-pulse">
                                     <a href={project.link} target="_blank">
-                                        <IoLogoGithub size={30} />
+                                        <IoLogoGithub size={50} />
                                     </a>
                                 </button>
+                                <button className=" hover:animate-pulse ">
+                                    <a href={project.link} target="_blank">
+                                        <IoLink size={50} />
+                                    </a>
+                                </button>
+                                </div>
                             </div>
                         </div>
                     )
