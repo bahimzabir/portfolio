@@ -44,7 +44,7 @@ const AboutSection = () => {
               </p>
               <br />
               <p>
-                I'm proud to be part of
+                {"I'm proud to be part of"}
                 <a href="https://www.42network.org/about-us/" target="_blank" className="font-bold text-teal-500"> 42 Network </a> as a sudent at
                 <a href="https://1337.ma/" target="_blank" className="font-bold text-teal-500"> 1337 </a>
                 coding school in Morocco.
@@ -52,11 +52,11 @@ const AboutSection = () => {
               </p>
               <br />
               <p>
-                My real passion lies in crafting innovative software that challenges the status quo.
-                Whether it's creating user-friendly apps or building robust backends,
-                I thrive on turning ideas into impactful solutions. I'm also a devoted tech geek,
-                and always eager to dive into new technologies. This drive pushes me to create software
-                that not only keeps up with the times, but also shapes the future.
+                {"My real passion lies in crafting innovative software that challenges the status quo.\
+                Whether it's creating user-friendly apps or building robust backends,\
+                I thrive on turning ideas into impactful solutions. I'm also a devoted tech geek,\
+                and always eager to dive into new technologies. This drive pushes me to create software\
+                that not only keeps up with the times, but also shapes the future."}
               </p>
             </div>
           </div>
