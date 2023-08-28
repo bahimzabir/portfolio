@@ -21,7 +21,11 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Projects",
-    page: "projects",
+    page: "Projects",
+  },
+  {
+    label: "Contact",
+    page: "Contact",
   },
 ];
 
@@ -40,9 +44,9 @@ export default function Navbar() {
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link to="home">
-              <div className="container flex items-center space-x-2">
-                <h2 className="text-1xl font-bold">Hello 👋</h2>
-                <h2 className="text-2xl font-bold">I'm Abderrahim</h2>
+              <div className="container flex items-center">
+                {/* <h2 className="text-1xl font-bold">ABDE.dev</h2> */}
+                <p className="text-2xl font-bold">ABDE</p><span className="text-2xl font-bold text-teal-500">.dev</span>
               </div>
             </Link>
             <div className="md:hidden flex items-center justify-between py-3 md:py-5">
@@ -52,21 +56,7 @@ export default function Navbar() {
               >
                 {navbar ? <IoMdClose size={30} /> : <IoMdMenu size={30} />}
               </button>
-              {currentTheme === "dark" ? (
-                <button
-                  onClick={() => setTheme("light")}
-                  className="bg-slate-100 p-2 rounded-xl"
-                >
-                  <RiSunLine size={15} color="black" />
-                </button>
-              ) : (
-                <button
-                  onClick={() => setTheme("dark")}
-                  className="bg-slate-100 p-2 rounded-xl"
-                >
-                  <RiMoonFill size={15} color="black" />
-                </button>
-              )}
+            
             </div>
           </div>
         </div>
@@ -76,7 +66,7 @@ export default function Navbar() {
             className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"
               }`}
           >
-            <div className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+            <div className="items-center font-bold hover:cursor-pointer justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
               {NAV_ITEMS.map((item, idx) => {
                 return (
                   <Link
@@ -96,7 +86,7 @@ export default function Navbar() {
                   </Link>
                 );
               })}
-              {!navbar ? (currentTheme === "dark" ? (
+              {currentTheme === "dark" ? (
                 <button
                   onClick={() => setTheme("light")}
                   className="bg-slate-100 p-2 rounded-xl"
@@ -110,7 +100,7 @@ export default function Navbar() {
                 >
                   <RiMoonFill size={25} color="black" />
                 </button>
-              )) : null}
+              )}
             </div>
           </div>
         </div>
