@@ -40,7 +40,7 @@ const MyForm = () => {
     const [submissionResult, setSubmissionResult] = useState(null)
     const [showAlert, setShowAlert] = useState(false);
 
-    const sendEmail = async (e) => {
+    const sendEmail = async (e : any) => {
         e.preventDefault();
         
         emailjs.sendForm("service_6nqhim8", 'template_sqvjh9t', form.current, 'FBOZXkByZsEGyb5VV')
