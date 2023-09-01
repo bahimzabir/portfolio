@@ -30,7 +30,8 @@ const NAV_ITEMS: Array<NavItem> = [
 ];
 
 export default function Navbar() {
-  let { systemTheme, theme, setTheme } = useTheme();
+  let { systemTheme,resolvedTheme ,theme, setTheme } = useTheme();
+  theme = resolvedTheme === 'system' ? systemTheme : resolvedTheme;
   if (theme === undefined) {
     setTheme("dark");
     theme = "dark";
@@ -39,7 +40,7 @@ export default function Navbar() {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <header className={`w-full mx-auto px-4 sm:px-20 fixed top-0 z-50 shadow bg-white ${currentTheme === "dark" ? "dark:bg-stone-900 dark:border-b dark:border-stone-600" : ""}`}>
+    <header className={`backdrop-filter backdrop-blur-lg w-full mx-auto px-4 bg-opacity-20 sm:px-20 fixed top-0 z-50 shadow bg-white ${currentTheme === "dark" ? "dark:bg-stone-900 dark:border-b dark:border-stone-600 dark:bg-opacity-20" : ""}`}>
       <div className="justify-between md:items-center md:flex">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">

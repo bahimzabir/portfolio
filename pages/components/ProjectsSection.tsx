@@ -10,6 +10,7 @@ import { IoLogoGithub, IoGlobe, IoLink, IoLinkOutline } from "react-icons/io5"
 
 export default function ProjectsSection() {
     let { resolvedTheme, systemTheme, theme } = useTheme()
+    theme = resolvedTheme === 'system' ? systemTheme : resolvedTheme;
     // console.log({systemTheme, theme, resolvedTheme})
     let projects = [
         {
